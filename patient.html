@@ -14,20 +14,18 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to bottom, #113355 0%, #1C1C1C 50%, #2E2E2E 100%);
-            overflow: hidden;
-            padding: 15px 10px 0 10px;
+            padding: 15px 10px 60px 10px; /* Увеличен нижний отступ с 0 до 60px */
         }
 
         .header {
             display: flex;
             height: 120px;
-            /* MODIFIED: Centering the header */
-            max-width: 360px;
-            margin: 0 auto;
+            width: 100%;
             border-radius: 20px;
             overflow: hidden;
+            margin-bottom: 21px; /* Добавлен отступ снизу для хедера */
         }
 
         .header-left {
@@ -101,9 +99,7 @@
         }
 
         .main-content {
-            padding: 21px 10px 20px 10px;
-            height: calc(100vh - 155px);
-            overflow-y: auto;
+            /* Убраны ограничения по высоте и overflow */
         }
 
         .weekly-menu {
@@ -270,19 +266,19 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
+            overflow-y: auto; /* Добавлена прокрутка для модального окна */
+            padding: 20px 0; /* Добавлен отступ сверху и снизу */
         }
 
         .modal-content {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
                         url(order_bc.jpg) center/cover;
-            margin: 5% auto;
+            margin: 20px auto; /* Изменен отступ с 5% на фиксированный */
             padding: 0;
             border-radius: 15px;
             width: 90%;
             max-width: 500px;
             position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
@@ -504,6 +500,7 @@
         .modal-buttons {
             display: flex;
             gap: 15px;
+            margin-bottom: 20px; /* Добавлен отступ снизу для кнопок */
         }
 
         .modal-btn {
@@ -554,24 +551,19 @@
             top: 0;
             width: 100%;
             height: 100%;
-            /* MODIFIED: Darker background and blur */
-            background-color: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-y: auto; /* Добавлена прокрутка */
+            padding: 20px 0; /* Добавлен отступ */
         }
 
         .meal-modal-content {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+            margin: 20px auto; /* Изменен отступ */
             padding: 0;
             border-radius: 20px;
             width: 90%;
             max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            /* MODIFIED: Centering the modal window */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
         }
 
         .meal-modal-background-layer {
@@ -645,6 +637,21 @@
             color: #FFFFFF;
             margin: 0;
             line-height: 1.4;
+        }
+
+        /* Добавляем медиа-запрос для лучшей адаптации на мобильных устройствах */
+        @media (max-height: 600px) {
+            body {
+                padding-bottom: 80px; /* Еще больше отступа для маленьких экранов */
+            }
+            
+            .modal {
+                padding: 10px 0;
+            }
+            
+            .modal-content {
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
@@ -737,7 +744,7 @@
 
                     <div class="form-group">
                         <label class="form-label" for="patientName">Пацієнт:</label>
-                        <input type="text" class="form-input" id="patientName" placeholder="Прізвище І.В." required>
+                        <input type="text" class="form-input" id="patientName" placeholder="Прізвище І.Б." required>
                     </div>
 
                     <div class="form-group">
@@ -773,7 +780,8 @@
                                 <button type="button" class="add-date-btn" onclick="addDate()">Додати дату</button>
                             </div>
                             <div class="individual-date-list" id="dateList">
-                                </div>
+                                <!-- Dates will be added here -->
+                            </div>
                         </div>
                     </div>
 
@@ -818,7 +826,7 @@
             <div class="meal-section">
                 <div class="meal-content lunch">
                     <h3 class="meal-title">Обід</h3>
-                    <p class="meal-description">Борщ українській, Котлета по-київськи з картоплею, Салат овочевий, Компот</p>
+                    <p class="meal-description">Борщ український, Котлета по-київськи з картоплею, Салат овочевий, Компот</p>
                 </div>
             </div>
 
