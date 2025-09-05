@@ -23,7 +23,9 @@
         .header {
             display: flex;
             height: 120px;
-            width: 100%;
+            /* MODIFIED: Centering the header */
+            max-width: 360px;
+            margin: 0 auto;
             border-radius: 20px;
             overflow: hidden;
         }
@@ -543,7 +545,7 @@
             transform: translateY(0);
         }
 
-        /* Modal styles for Monday */
+        /* Previous modal styles for Monday */
         .meal-modal {
             display: none;
             position: fixed;
@@ -552,21 +554,24 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            /* MODIFIED: Darker background and blur */
+            background-color: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(5px);
         }
 
         .meal-modal-content {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-            margin: 5% auto;
             padding: 0;
             border-radius: 20px;
             width: 90%;
             max-width: 600px;
-            position: relative;
             max-height: 90vh;
             overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* MODIFIED: Centering the modal window */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .meal-modal-background-layer {
@@ -732,7 +737,7 @@
 
                     <div class="form-group">
                         <label class="form-label" for="patientName">Пацієнт:</label>
-                        <input type="text" class="form-input" id="patientName" placeholder="Прізвище І.Б." required>
+                        <input type="text" class="form-input" id="patientName" placeholder="Прізвище І.В." required>
                     </div>
 
                     <div class="form-group">
@@ -768,8 +773,7 @@
                                 <button type="button" class="add-date-btn" onclick="addDate()">Додати дату</button>
                             </div>
                             <div class="individual-date-list" id="dateList">
-                                <!-- Dates will be added here -->
-                            </div>
+                                </div>
                         </div>
                     </div>
 
@@ -814,7 +818,7 @@
             <div class="meal-section">
                 <div class="meal-content lunch">
                     <h3 class="meal-title">Обід</h3>
-                    <p class="meal-description">Борщ український, Котлета по-київськи з картоплею, Салат овочевий, Компот</p>
+                    <p class="meal-description">Борщ українській, Котлета по-київськи з картоплею, Салат овочевий, Компот</p>
                 </div>
             </div>
 
