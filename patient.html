@@ -47,7 +47,7 @@
         .logo {
             width: 70px;
             height: 120px;
-            background: url(logo1.2.png) center/contain no-repeat;
+            background: url(logo1.2.webp) center/contain no-repeat;
         }
 
         .header-right {
@@ -113,7 +113,7 @@
 
         .weekly-menu {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url(weekly_menu.jpg) center/cover;
+                        url(weekly_menu.webp) center/cover;
             border-radius: 20px;
             padding: 20px 15px;
             margin: 0 0 21px 0;
@@ -174,7 +174,7 @@
         /* Food ordering section */
         .food-ordering {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url(fruits.jpg) center/cover;
+                        url(fruits.webp) center/cover;
             border-radius: 20px;
             padding: 20px 15px;
             margin: 0;
@@ -281,7 +281,7 @@
 
         .modal-content {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url(order_bc.jpg) center/cover;
+                        url(order_bc.webp) center/cover;
             margin: 5% auto;
             padding: 0;
             border-radius: 15px;
@@ -586,7 +586,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url(borscht.jpg) center/cover;
+            background: url(borscht.webp) center/cover;
             border-radius: 20px;
             filter: contrast(1.2) saturate(1.3) brightness(0.5);
             z-index: -1;
@@ -1102,6 +1102,25 @@
     </div>
 
     <script>
+        // Прелоадер изображений
+        function preloadImages() {
+            const images = [
+                'logo1.2.webp',
+                'weekly_menu.webp',
+                'fruits.webp',
+                'order_bc.webp',
+                'borscht.webp'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        // Запуск прелоадера при загрузке страницы
+        window.addEventListener('load', preloadImages);
+
         let selectedMealPlan = null;
         let pricePerDay = 0;
         let dateType = 'consecutive';
